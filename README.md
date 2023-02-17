@@ -14,3 +14,5 @@ To run the EXE-File, you'll just need a new version of Windows (10/11)
 
 To run the PY-File, you'll need Python and some libraries, more instructions in the release!
 
+![BLUEAMETHYST](https://avatars.githubusercontent.com/u/123306673?s=200&v=4)
+
