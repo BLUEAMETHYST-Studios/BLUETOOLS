@@ -1,4 +1,4 @@
-# // BLUETOOLS // by BLUEAMETHYST Studios // SOURCE CODE
+# // BLUETOOLS // by BLUEAMETHYST Studios // SOURCE CODE 
 import os
 import sys
 import psutil
@@ -12,6 +12,7 @@ import openai
 from colorama import Fore
 
 #variables
+BTVERSION = "0.0.3"
 USER = os.getlogin() 
 TIME = datetime.datetime.now()
 UNIX = time.time()
@@ -41,16 +42,18 @@ while True:
 
     COMMAND=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
 
+#info
     if COMMAND=="info":
         os.system("cls")
-        print(Fore.LIGHTBLUE_EX + "             [ BLUETOOLS ]             ")
-        print(Fore.CYAN + "=======================================")
+        print(Fore.LIGHTBLUE_EX + "                    [ BLUETOOLS ]             ")
+        print(Fore.CYAN + "======================================================")
         print("\n")
-        print("> Cool tools for you!")
+        print("> Bluetools offers great tools for you!")
+        print("> Current version: " + BTVERSION)
         print("> Made by Simoso68 with <3")
         print("> A project by BLUEAMETHYST Studios")
         print("\n")
-        print(Fore.CYAN + "=======================================")
+        print(Fore.CYAN + "======================================================")
         print("\n")
 #time
     elif COMMAND=="time":
@@ -121,21 +124,46 @@ while True:
         print(Fore.LIGHTBLUE_EX + "===========================================================")
         print(Fore.LIGHTBLUE_EX + "What should be the name of the window?")
         WNAME=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
-        print(Fore.LIGHTBLUE_EX + "What size should the window be? (Don't forget the 'x' !)")
+        os.system("cls")
+        print(Fore.LIGHTBLUE_EX + "What size should the window be?\nDon't forget the " + '"x" !')
         print(Fore.LIGHTBLUE_EX + "Example: 1000x1000")
         WSIZE=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
-        print(Fore.LIGHTBLUE_EX + "What text should be in the window?")
-        WTEXT=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
-        print(Fore.LIGHTBLUE_EX + "How big should the text be? (In pixels)")
-        WFONTSIZE=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
-    
-        window = tk.Tk()
-        window.title(WNAME)
-        window.geometry(WSIZE)
-        text1 = tk.Label(window, text=WTEXT, font=("Arial", WFONTSIZE))
-        text1.pack(padx=20, pady=20)
+        os.system("cls")
+        try:
+            w, h = WSIZE.split('x')
+            w = int(w)
+            h = int(h)
+        except ValueError:
+            os.system("cls")
+            print(Fore.RED + "[BT] The input " + Fore.CYAN + WSIZE + Fore.RED + " isn't a valid window size!")
+            print(Fore.RED + "[BT] Please follow the format of the example (Example: 1000x1000)!")
+        else:
+            
+            print(Fore.LIGHTBLUE_EX + "What text should be in the window?")
+            WTEXT=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
+            os.system("cls")
+            print(Fore.LIGHTBLUE_EX + "How big should the text be? (In pixels)")
+            WFONTSIZE=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
+            os.system("cls")
+            try:
+                WFONTSIZE = int(WFONTSIZE)
+            except ValueError:
+                os.system("cls")
+                print(Fore.RED + "[BT] Font size must be an integer!")
+                print(Fore.RED + "[BT] The input " + Fore.CYAN + WFONTSIZE + Fore.RED + " isn't a valid fontsize!")
+            else:
+                print(Fore.CYAN + "[BT] Window Title: " + WNAME )
+                print(Fore.CYAN + "[BT] Window Width: " + str(w) )
+                print(Fore.CYAN + "[BT] Window Height: " + str(h) )
+                print(Fore.CYAN + "[BT] Window Text: " + WTEXT )
+                print(Fore.CYAN + "[BT] Window Text Fontsize: " + str(WFONTSIZE) )
+                window = tk.Tk()
+                window.title(WNAME)
+                window.geometry(f"{w}x{h}")
+                text1 = tk.Label(window, text=WTEXT, font=("Arial", WFONTSIZE))
+                text1.pack(padx=20, pady=20)
 
-        window.mainloop()
+                window.mainloop()
 #current version of java
     elif COMMAND=="ver-java":
         os.system("cls")
@@ -150,6 +178,7 @@ while True:
         print(Fore.LIGHTBLUE_EX + "Enter a command, that should be executed by the windows command prompt.")
         CMD=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
         os.system(CMD)
+        os.system("cls")
 #who am i?
     elif COMMAND=="getname":
         os.system("cls")
@@ -248,8 +277,8 @@ while True:
                 ).choices[0].text
 
                 print(Fore.CYAN + response)
-                input(Fore.LIGHTBLUE_EX + 'Press ENTER to continue > ')
-                os.system("cls")
+                print("\n")
+                input(Fore.LIGHTBLUE_EX + 'Press ENTER to talk again to ChatGPT > ')
                 
 
     elif COMMAND=="close":
@@ -288,6 +317,7 @@ while True:
     print("\n\n")
     input(Fore.LIGHTBLUE_EX + "Press ENTER to continue > ")
     os.system("cls")
+
 
 #END OF CODE // MADE BY BLUEAMETHYST Studios
 
