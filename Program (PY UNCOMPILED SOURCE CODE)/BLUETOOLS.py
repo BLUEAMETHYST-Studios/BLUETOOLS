@@ -12,7 +12,7 @@ import openai
 from colorama import Fore
 
 #variables
-BTVERSION = "0.0.3"
+BTVERSION = "0.0.4"
 USER = os.getlogin() 
 TIME = datetime.datetime.now()
 UNIX = time.time()
@@ -28,12 +28,11 @@ GREETINGLIST = ["Hello! Normally I say Hello World...", "Greetings from a consol
 #cleanup
 os.system("cls")
 
-#startup
+#startup 
 os.system("title BLUETOOLS")
-print(Fore.CYAN  + "Welcome to BLUEAMETHYST's BLUETOOLS!")
+
+print(Fore.CYAN + "Welcome to BLUEAMETHYST's BLUETOOLS!")
 print(Fore.CYAN  + 'Type "help" to see a list of all commands.\n')
-
-
 
 #other stuff
 while True:
@@ -63,22 +62,6 @@ while True:
     elif COMMAND=="unixtime":
         os.system("cls")
         print(Fore.LIGHTBLUE_EX + "Current Unixtime | " + Fore.CYAN  + str(UNIX))
-#???
-    elif COMMAND=="dangerous":
-        os.system("cls")
-        print(Fore.YELLOW + "Ohhhhh you found a secret!" + Fore.GREEN + "\nWanna go deeper?")
-    #deez
-        SECRET_INPUT=input("> ")
-        if SECRET_INPUT=="nuts":
-            print(Fore.YELLOW + "hehe funny!")
-            os.system("start error")
-            print(Fore.YELLOW + "Was that an error?\n\n\n" + Fore.LIGHTRED_EX + "No! Intentional of course!")
-
-
-        else:
-            print(Fore.RED + "hmm seems like the wrong input!\nLook into the source code and you'll know what todo! >:)\n\n")
-
-
 #download
     elif COMMAND=="download":
         os.system("cls")
@@ -95,7 +78,7 @@ while True:
         print(Fore.LIGHTBLUE_EX + "[8] Epic Games")
         print(Fore.LIGHTBLUE_EX + "[9] Files")
     
-        DOWNLOAD=input("> ")
+        DOWNLOAD=input(Fore.LIGHTBLUE_EX + "> " + Fore.CYAN)
         if DOWNLOAD=="1":
             os.system("start https://github.com/BLUEAMETHYST-Studios/Quick-Starter-GUI/releases/download/utility/QUICK_STARTER_GUI.pyw")
         elif DOWNLOAD=="2":
@@ -313,7 +296,7 @@ while True:
         os.system("cls")
         print(Fore.RED + "[BT] Command " + Fore.CYAN +  COMMAND +  Fore.RED + " is not available!")
         print(Fore.RED + '[BT] Type "help" to list all commands.')
-
+#loop end
     print("\n\n")
     input(Fore.LIGHTBLUE_EX + "Press ENTER to continue > ")
     os.system("cls")
